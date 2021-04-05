@@ -1,0 +1,22 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["microsoftSqlServer"]
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Cinema {
+  id     Int    @id @default(autoincrement())
+  name   String
+  adress String
+}
+
+model Movie {
+  id           Int    @id @default(autoincrement())
+  director     String
+  movieName    String
+  yearReleased Int
+}
